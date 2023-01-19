@@ -1,1 +1,63 @@
-<p>Aqui será o navbar</p>
+<div class="nav-bar-app">
+    <header>
+        <nav>
+            <ul>
+                <div class="nav-bar-menu">
+                    <div class="block-logotipo">
+                        logo
+                    </div>
+                    <div class="content-nav-bar">
+                        <li class="content-nav-bar-items">
+                            <a href="{% url 'home' %}">
+                                Home
+                            </a>
+                        </li>
+                        <li class="content-nav-bar-items" id="menu-services">
+                            <a href="#">
+                                Serviços
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <div class="menu-services-items">
+                                <ul>
+                                    <li>API's</li>
+                                    <li>Integrações</li>
+                                    <li>Desenvolvimento Web</li>
+                                    <li>Ciência de Dados</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="content-nav-bar-items">
+                            <a href="#">
+                                Sobre
+                            </a>
+                        </li>
+                        <li class="content-nav-bar-items">
+                            <a href="#">
+                                Contato
+                            </a>
+                        </li>
+                    </div>
+    
+                    <div class="content-block-login">
+                        <li class="btn-login">
+                            <a href="{% url 'login' %}">
+                                Login
+                            </a>
+                        </li>
+                        <li class="btn-cadastro">
+                            <a href="{% url 'register' %}">
+                                Cadastre-se
+                            </a>
+                        </li>
+                        <li class="btn-ajustes">
+                            <a href="{% url 'register' %}">
+                                Ajustes
+                                <i class="fa-solid fa-gears"></i>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</div>
