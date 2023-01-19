@@ -1,0 +1,1 @@
+console.log("Scripts 1 carregados na aplicação...");
