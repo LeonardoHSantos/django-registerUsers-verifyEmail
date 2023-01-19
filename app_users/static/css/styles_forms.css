@@ -1,0 +1,72 @@
+:root {
+    --color-light-0: #f6fafa;
+    --color-light-25: #e3f1ed;
+    --color-light-50: #61C6D2;
+    --color-light-100: #0b9bd4;
+    --color-light-125: #1782ac;
+    --color-light-150: #002fff;
+    
+    --color-second-light-1: #cbf708;
+
+    --color-dark--0: #bcbcc4;
+    --color-dark--25: #9a9a9e;
+    --color-dark--50: #5f5f61;
+    --color-dark--100: #3f3f42;
+    --color-dark--150: #272729;
+}
+.container-form-user {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: 28rem;
+    align-items: center;
+    background-color: var(--color-light-25);
+}
+.container-form-user form {
+    gap: 15px;
+    width: 32rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-light-50);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    
+}
+.labels-form label {
+    margin-left: 20px;
+}
+.fields-form input {
+    width: 20rem;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: var(--color-light-25);
+    border-bottom: 1px solid var(--color-light-125);
+}
+.fields-form input:focus {
+    /* box-shadow: rgb(3, 35, 211) 2.4px 2.4px 3.2px; */
+    box-shadow: rgba(5, 124, 243, 0.74) 0px 8px 24px;
+}
+.fields-form input::placeholder {
+    color: var(--color-light-125);
+}
+.btn-form-user input {
+    margin: 0;
+    margin-left: 19px;
+    width: 20rem;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 0px;
+    color: var(--color-light-0);
+    background-color: var(--color-light-100);
+}
+.btn-form-user input:hover {
+    transition: 0.4s;
+    background-color: var(--color-light-125);
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}

@@ -34,13 +34,17 @@ body {
     background: var(--color-light-0);
     font-family: 'Heebo', sans-serif;
 }
-
+nav {
+    padding: 10px 0px;
+}
+.navbar-app ul {
+    margin-bottom: 0px !important;
+}
 /* navbar */
 .nav-bar-menu {
     margin: 0;
     display: flex;
     padding: 5px 10px;
-    margin-left: -30px;
     justify-content: space-between;
     background-color: var(--color-light-0);
 }
@@ -78,6 +82,12 @@ body {
     transition: 0.6s;
     visibility: visible;
     color: var(--color-dark--50);
+    background: azure;
+    margin-left: -24px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 3px;
+    
 }
 .menu-services-items ul {
     position: absolute;
@@ -86,6 +96,7 @@ body {
     width: 14rem;
     display: flex;
     flex-direction: column;
+    z-index: 999;
 }
 .menu-services-items ul li {
     justify-content: center;
@@ -93,7 +104,6 @@ body {
     flex-direction: column;
     margin: 0;
     margin-top: 10px;
-    margin-left: -43px;
 }
 .content-nav-bar-items a {
     color: var(--color-dark--100);
@@ -105,7 +115,9 @@ body {
     width: 390px;
     padding: 0 20px;
 }
-
+.content-block-login li {
+    cursor: pointer;
+}
 .content-block-login li, .content-block-login a {
     border-radius: 10px;
     padding: 0px 10px;
@@ -129,10 +141,13 @@ body {
 .btn-cadastro {
     border: none;
     color: var(--color-light-0);
+    border: 1px solid transparent   ;
     background-color: var(--color-light-100);
-    cursor: pointer;
 }
 .btn-cadastro:hover {
     transition: 0.35s;
     background-color: var(--color-light-125);
 }
+/* .btn-ajustes {
+    cursor: pointer;
+} */
