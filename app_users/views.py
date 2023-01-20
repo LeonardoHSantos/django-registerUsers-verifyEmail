@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.mail import send_mail
 
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login as auth_login
 
@@ -169,6 +170,8 @@ def varify_account_user(request, auth_token):
 def error_verify_accounts (request):
     return render(request, "app/error_verify_accounts.html")
 
+
+@login_required(login_url="login")
 def painel_user(request):
     return render(request, "painel_user/painel.html")
 
