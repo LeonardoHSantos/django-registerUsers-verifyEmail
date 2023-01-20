@@ -1,4 +1,16 @@
-from django.shortcuts import render
+import uuid
+from django.shortcuts import render, redirect
+
+from django.conf import settings
+from django.core.mail import send_mail
+
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, logout, login as auth_login
+
+from .models import ProfileUser
+
+
+
 
 def home(request):
     return render(request, "app/home.html")
