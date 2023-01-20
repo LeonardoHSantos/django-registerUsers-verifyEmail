@@ -111,14 +111,27 @@ def register(request):
         profile_user = ProfileUser.objects.create(user=user_obj, auth_token=auth_token)
         profile_user.save()
 
-        # context = {
-        #     "username": username,
-        #     "email": email,
-        #     "password": password,
-        #     "username_already_exists": False,
-        #     "email_already_exists": True
-        # }
+        context = {
+            "mensagem_check_email_token": True
+        }
+        send_mail_validated_account(username=username, email=email, token=auth_token)
         return render(request, "app/register.html", context=context) 
 
 def send_mail_validated_account(username, email, token):
-    pass
+    subject = 'Verifique sua conta'
+    message = f'Olá {username}, valide sua conta acessando este link http://127.0.0.1:8000/verify/{token}'
+    from_email = settings.EMAIL_HOST_USER
+    recipient_list = [email]
+    print(subject)
+    print(message)
+    print(from_email)
+    print(recipient_list)
+    send_mail(
+        subject=subject,
+        message=message,
+        from_email=from_email,
+        recipient_list=recipient_list,
+        html_message=f"""
+        <p>Sua conta está a um clique de você.</p>
+        <p>{message}</p>
+        """)
