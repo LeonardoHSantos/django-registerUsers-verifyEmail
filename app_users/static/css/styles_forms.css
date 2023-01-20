@@ -99,20 +99,22 @@
     padding: 10px;
     margin: 0px;
 }
-
-.incorrect_username_or_password {
+.messages-forms {
     position: absolute;
     padding: 0;
     display: flex;
     flex-direction: column;
-    top: 20px;
+    top: 16px;
     background-color: var(--color-alert-1);
     color: var(--color-light-0);
     border-radius: 5px;
     align-items: center;
     margin: 0;
 }
-.incorrect_username_or_password p {
+/* .incorrect_username_or_password, .incorrect_forms {
+    
+} */
+.incorrect_username_or_password p , .incorrect_forms p{
     text-align: center;
     padding: 2px 5px;
     margin: 0;

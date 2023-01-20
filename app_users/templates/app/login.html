@@ -6,9 +6,19 @@
         <form action="{% url 'login' %}" method="POST" class="form-user">
             {% csrf_token %}
             <h3>Login</h3>
-            <div class="incorrect_username_or_password">
-                <!-- <i class="fa-solid fa-circle-xmark"></i> -->
-                <p>Usuário ou senha incorretos.</p>
+            <div class="messages-forms">
+
+                {% if incorrect_username_or_password %}
+                    <div class="incorrect_username_or_password">
+                        <p>Usuário ou senha incorretos.</p>
+                    </div>
+                {% elif incorrect_forms %}
+                    <div class="incorrect_forms">
+                        <p>Preencha os campos Usuário e Senha para continuar.</p>
+                    </div>
+                {% elif account_not_validated %}
+                    <p>Sua conta ainda não foi validada. Verifique seu e-mail.</p>
+                {% endif %}
             </div>
             <div class="fields-form">
                 <div class="labels-form">
