@@ -66,7 +66,7 @@ def login(request):
                 return render(request, "app/login.html", context=context)
             auth_login(request, user)
             print(">>>>>> Usuário autenticado com sucesso...")
-
+            return redirect("/painel/")
         except Exception as e:
             print(e)
             return render(request, "app/login.html")
@@ -84,6 +84,15 @@ def register(request):
         password = request.POST.get("password")
         print(request.POST)
         print(username, email, password)
+
+        if not username or not email or not password:
+                context = {
+                    "incorrect_forms": True,
+                    "username": username,
+                    "email": email,
+                    "password": password,
+                }
+                return render(request, "app/register.html", context=context)
 
         if User.objects.filter(username=username).first():
             print("Este usuário já existe.")
@@ -135,3 +144,31 @@ def send_mail_validated_account(username, email, token):
         <p>Sua conta está a um clique de você.</p>
         <p>{message}</p>
         """)
+
+def varify_account_user(request, auth_token):
+    try:
+        profile_auth = ProfileUser.objects.filter(auth_token=auth_token).first()
+        if profile_auth:
+            if profile_auth.is_verified:
+                context = {
+                    "already_verified_account": True
+                }
+                return render(request, "app/page_success_account.html", context=context)
+            profile_auth.is_verified = True
+            profile_auth.save()
+            context = {
+                "successfully_verified_account": True
+            }
+            return render(request, "app/page_success_account.html", context=context)
+        else:
+            return redirect("/error-verify-accounts/")
+    except Exception as e:
+        print(e)
+        return redirect("/error-verify-accounts/")
+
+def error_verify_accounts (request):
+    return render(request, "app/error_verify_accounts.html")
+
+def painel_user(request):
+    return render(request, "painel_user/painel.html")
+

@@ -10,6 +10,7 @@
     --color-light-150: #002fff;
     
     --color-second-light-1: #cbf708;
+    --color-btn-red-1: #da141456;
 
     --color-dark--0: #bcbcc4;
     --color-dark--25: #9a9a9e;
@@ -47,6 +48,7 @@ nav {
     padding: 5px 10px;
     justify-content: space-between;
     background-color: var(--color-light-0);
+    align-items: center;
 }
 .content-nav-bar li {
     padding: 0 10px;
@@ -70,6 +72,7 @@ nav {
 }
 .content-block-login {
     width: 15rem;
+    align-items: center;
 }
 
 /* menu services */
@@ -147,6 +150,15 @@ nav {
 .btn-cadastro:hover {
     transition: 0.35s;
     background-color: var(--color-light-125);
+}
+
+.area-user-authenticated a {
+    background-color: var(--color-btn-red-1);
+    color: var(--color-dark--150);
+    align-items: center;
+}
+.area-user-authenticated p {
+    display: contents;
 }
 /* .btn-ajustes {
     cursor: pointer;

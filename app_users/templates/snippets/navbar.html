@@ -39,20 +39,26 @@
                     </div>
     
                     <div class="content-block-login">
-                        <li class="btn-login">
-                            <a href="{% url 'login' %}">
-                                Login
-                            </a>
-                        </li>
-                        <li class="btn-cadastro">
-                            <a href="{% url 'register' %}">
-                                Cadastre-se
-                            </a>
-                        </li>
+                        {% if request.user.is_authenticated %}
+                            <div class="area-user-authenticated">
+                                <p class="p-align-center">Olá {{ request.user.username }}, <a href="{% url 'logout' %}">Sair</a></p>
+                            </div>
+                            
+                        {% else %}
+                            <li class="btn-login">
+                                <a href="{% url 'login' %}">
+                                    Login
+                                </a>
+                            </li>
+                            <li class="btn-cadastro">
+                                <a href="{% url 'register' %}">
+                                    Cadastre-se
+                                </a>
+                            </li>
+                        {% endif %}
                         <li class="btn-ajustes">
                             Ajustes
                             <i class="fa-solid fa-gears"></i>
-                            
                         </li>
                     </div>
                 </ul>

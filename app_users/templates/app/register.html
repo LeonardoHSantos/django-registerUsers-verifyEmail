@@ -6,6 +6,14 @@
         <form action="{% url 'register' %}" method="POST" class="form-user">
             {% csrf_token %}
             <h3>Cadastre-se</h3>
+
+            {% if incorrect_forms %}
+                <div class="messages-forms">
+                    <div class="incorrect_forms">
+                        <p>Preencha todos os campos para continuar.</p>
+                    </div>
+                </div>
+            {% endif %}
             <div class="fields-form">
                 <div class="labels-form">
                     <label for="username">Usuário</label>

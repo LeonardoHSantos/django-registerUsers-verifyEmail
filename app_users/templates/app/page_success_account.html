@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Verify Accounts{% endblock %}
+
+{% block content %}
+    <div class="container-success-account">
+        <div class="content-already-verified-account">
+            {% if already_verified_account %}
+                <h1>Sua conta já foi verificada</h1>
+                <a href="{% url 'login' %}">Faça o login aqui</a>
+            {% endif %}
+        </div>
+        {% if successfully_verified_account %}
+        <div class="content-successfully-verified-account">
+            <h1>Parabéns! Sua conta foi verificada com sucesso.</h1>
+            <a href="{% url 'login' %}">Faça o login aqui</a>
+        </div>
+        {% endif %}
+
+    </div>
+{% endblock %}
