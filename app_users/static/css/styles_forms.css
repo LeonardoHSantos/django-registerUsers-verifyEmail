@@ -13,13 +13,19 @@
     --color-dark--50: #5f5f61;
     --color-dark--100: #3f3f42;
     --color-dark--150: #272729;
+
+    --color-content-bg-info-1: #00000017;
+
+    --color-alert-1: rgb(252, 0, 0);
 }
 .container-form-user {
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 0;
     height: 28rem;
+    min-width: 42rem;
     align-items: center;
     background-color: var(--color-light-25);
 }
@@ -34,8 +40,85 @@
     border-radius: 5px;
     background-color: var(--color-light-50);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-    
 }
+.alert-username-form, .alert-email-form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 21rem;
+    margin: 0;
+    padding: 0;
+    align-items: end;
+}
+.alert-username-form p, .alert-email-form p{
+    margin-top: 4px;
+    padding: 1.4px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 5px;
+    color: var(--color-alert-1);
+    background-color: var(--color-dark--25);
+    animation: animacao_form_1 0.4s ease-in-out;
+}
+@keyframes animacao_form_1 {
+    0% {
+        rotate: -2deg;
+    }
+    50% {
+        rotate: 2deg;
+    }
+    100% {
+        rotate: 0deg;
+    }
+}
+.content-user-no-have-account,
+.content-user-already-have-account {
+    background-color: var(--color-content-bg-info-1);
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.content-user-no-have-account {
+    display: flex;
+    width: 20rem;
+}
+.content-user-no-have-account p {
+    text-align: center;
+    border-right: 1px solid var(--color-dark--25);
+}
+.forget-password {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+
+}
+
+.content-user-no-have-account p,
+.content-user-already-have-account p {
+    padding: 10px;
+    margin: 0px;
+}
+
+.incorrect_username_or_password {
+    position: absolute;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    top: 20px;
+    background-color: var(--color-alert-1);
+    color: var(--color-light-0);
+    border-radius: 5px;
+    align-items: center;
+    margin: 0;
+}
+.incorrect_username_or_password p {
+    text-align: center;
+    padding: 2px 5px;
+    margin: 0;
+}
+
+
 .labels-form label {
     margin-left: 20px;
 }

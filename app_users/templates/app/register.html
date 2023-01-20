@@ -3,14 +3,20 @@
 
 {% block content %}
     <div class="container-form-user">
-        <form action="{% url 'login' %}" method="POST" class="form-user">
+        <form action="{% url 'register' %}" method="POST" class="form-user">
+            {% csrf_token %}
             <h3>Cadastre-se</h3>
             <div class="fields-form">
                 <div class="labels-form">
                     <label for="username">Usuário</label>
                 </div>
-                <i class="fa-solid fa-envelope"></i>
-                <input type="text" name="username" placeholder="insira seu e-mail..." value="{{ username }}">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="username" placeholder="crie um usuário..." value="{{ username }}">
+                {% if username_already_exists %}
+                    <div class="alert-username-form">
+                        <p>Este usuário já existe.</p>
+                    </div>
+                {% endif %}
             </div>
             <div class="fields-form">
                 <div class="labels-form">
@@ -18,16 +24,25 @@
                 </div>
                 <i class="fa-solid fa-envelope"></i>
                 <input type="email" name="email" placeholder="insira seu e-mail..." value="{{ email }}">
+                {% if email_already_exists %}
+                    <div class="alert-email-form">
+                        <p>Este email já está cadastrado.</p>
+                    </div>
+                {% endif %}
             </div>
             <div class="fields-form">
                 <div class="labels-form">
                     <label for="password">Senha</label>
                 </div>
                 <i class="fa-sharp fa-solid fa-key"></i>
-                <input type="password" name="password" placeholder="insira sua senha..." value="{{ password }}">
+                <input type="password" name="password" placeholder="crie uma senha..." value="{{ password }}">
             </div>
             <div class="btn-form-user">
-                <input type="button" value="Entrar">
+                <input type="submit" value="Entrar">
+            </div>
+
+            <div class="content-user-already-have-account">
+                <p>Já possui uma conta? <a href="{% url 'login' %}">Clique aqui</a></p>
             </div>
         </form>
     </div>

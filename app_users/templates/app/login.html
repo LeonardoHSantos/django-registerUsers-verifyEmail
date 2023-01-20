@@ -4,13 +4,18 @@
 {% block content %}
     <div class="container-form-user">
         <form action="{% url 'login' %}" method="POST" class="form-user">
+            {% csrf_token %}
             <h3>Login</h3>
+            <div class="incorrect_username_or_password">
+                <!-- <i class="fa-solid fa-circle-xmark"></i> -->
+                <p>Usuário ou senha incorretos.</p>
+            </div>
             <div class="fields-form">
                 <div class="labels-form">
-                    <label for="email">E-mail</label>
+                    <label for="username">Usuário</label>
                 </div>
-                <i class="fa-solid fa-envelope"></i>
-                <input type="email" name="email" placeholder="insira seu e-mail..." value="{{ email }}">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="username" placeholder="insira seu usuário..." value="{{ username }}">
             </div>
             <div class="fields-form">
                 <div class="labels-form">
@@ -20,7 +25,13 @@
                 <input type="password" name="password" placeholder="insira sua senha..." value="{{ password }}">
             </div>
             <div class="btn-form-user">
-                <input type="button" value="Entrar">
+                <input type="submit" value="Entrar">
+            </div>
+            <div class="content-user-no-have-account">
+                <p>Ainda não possui uma conta? <a href="{% url 'register' %}">Cadastre-se</a></p>
+                <div class="forget-password">
+                    <a href="{% url 'register' %}">Esqueceu sua senha?</a>
+                </div>
             </div>
         </form>
     </div>
